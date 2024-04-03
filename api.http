@@ -1,0 +1,23 @@
+POST http://localhost:3333/events
+Content-Type: application/json
+
+{
+    "title": "Novo Evento",
+    "details": null,
+    "maximumAttendees": 1
+}
+
+###
+
+POST http://localhost:3333/events/c6b9a31d-614c-432c-9056-7ae89cce0ea2/attendees/
+Content-Type: application/json
+
+{
+    "name": "Rachel",
+    "email": "rachel.l.patricio@gmail.com"
+}
+
+###
+
+GET http://localhost:3333/events/c6b9a31d-614c-432c-9056-7ae89cce0ea2
+Content-Type: application/json
