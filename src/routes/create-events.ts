@@ -7,6 +7,7 @@ import {
 import { generateSlug } from "../utils/generateSlug";
 import { FastifyInstance } from "fastify";
 import { prisma } from "../lib/prisma";
+import { BadRequest } from "./_errors/bad-request"
 
 export async function createEvent(app: FastifyInstance) {
   app.withTypeProvider<ZodTypeProvider>().post(
@@ -26,7 +27,11 @@ export async function createEvent(app: FastifyInstance) {
       },
     },  
     async (request, reply) => {
-      const { title, details, maximumAttendees } = request.body;
+      const { 
+        title, 
+        details, 
+        maximumAttendees, 
+      } = request.body;
 
       const slug = generateSlug(title);
 
@@ -51,6 +56,5 @@ export async function createEvent(app: FastifyInstance) {
 
       //return {eventId: event.id}
       return reply.status(201).send({ eventId: event.id });
-    }
-  );
+    });
 }
