@@ -9,7 +9,7 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:3333/events/c6b9a31d-614c-432c-9056-7ae89cce0ea2/attendees/
+POST http://localhost:3333/events/c6b9a31d-614c-432c-9056-7ae89cce0ea2
 Content-Type: application/json
 
 {
@@ -19,10 +19,14 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3333/events/1fbb7cfb-797c-451f-8e23-afed266a3b7d
+GET http://localhost:3333/attendees/1/badge
 Content-Type: application/json
 
 ###
 
-GET http://localhost:3333/events/1fbb7cfb-797c-451f-8e23-afed266a3b7d/check-in
+GET http://localhost:3333/attendees/1/check-in
 Content-Type: application/json
+
+###
+
+GET http://localhost:3333/events/c6b9a31d-614c-432c-9056-7ae89cce0ea2/attendees?query=leandro

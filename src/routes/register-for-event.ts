@@ -6,7 +6,7 @@ import {
   ZodTypeProvider,
 } from "fastify-type-provider-zod";
 import { generateSlug } from "../utils/generateSlug";
-import { createEvent } from "../routes/create-events";
+import { createEvent } from "./create-event";
 //import { PrismaClient } from "@prisma/client";
 import { prisma } from "../lib/prisma";
 
@@ -15,6 +15,8 @@ export async function registerForEvent(app: FastifyInstance) {
     .withTypeProvider<ZodTypeProvider>()
     .post('/events/:eventId/attendees', {
         schema: {
+            summary: 'Register an attendee',
+        tags: ['attendees'],
             body: z.object({
                 name: z.string().min(4), 
                 email: z.string().email(),
